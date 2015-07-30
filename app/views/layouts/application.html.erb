@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RockPaperScissorsHomework</title>
+  <title>RockPaperScissors</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
+  <% if false %>
+    <script src="/assets/js/jquery.box2d.min.js"></script>
+    <script>
+    $(function() {
+      $('img').box2d({'y-velocity':5})
+    });
+    </script>
+  <% end %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <a href="/flexible/rock" class="btn btn-success btn-block btn-lg">Play rock.</a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="/flexible/paper" class="btn btn-success btn-block btn-lg">Play paper.</a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="/flexible/scissors" class="btn btn-success btn-block btn-lg">Play scissors.</a>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

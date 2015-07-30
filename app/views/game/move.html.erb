@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-<%= rand(5) %>">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">You played <%= @user_move %>.</h3>
+      </div>
+      <div class="panel-body">
+        <img src="/assets/images/<%= @user_move %>.png" class="img-responsive">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">The computer played <%= @computer_move %>.</h3>
+      </div>
+      <div class="panel-body">
+        <img src="/assets/images/<%= @computer_move %>.png" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <h1 class="text-center">You <%= @outcome %>!</h1>
+    </div>
+  </div>
+</div>
+
+<table class="table table-hover table-striped">
+  <tr>
+    <th>User Move</th>
+    <th>Computer Move</th>
+    <th>User Wins</th>
+    <th>Computer Wins</th>
+  </tr>
+  <% @all_moves.each do |zebra| %>
+    <tr>
+      <td>
+        <%= zebra.user_move %>
+      </td>
+
+      <td>
+        <%= zebra.computer_move %>
+      </td>
+
+      <td>
+        <%= zebra.user_wins %>
+      </td>
+
+      <td>
+        <%= zebra.computer_wins %>
+      </td>
+    </tr>
+  <% end %>
+
+  <tr>
+    <th></th>
+    <th></th>
+    <th><%= @all_moves.sum(:user_wins) %></th>
+    <th><%= @all_moves.sum(:computer_wins) %></th>
+  </tr>
+
+</table>
