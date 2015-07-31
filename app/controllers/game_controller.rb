@@ -4,9 +4,9 @@ class GameController < ApplicationController
   #   redirect_to("/mockup.html")
   # end
   def rps
-   @user_move = params["move"]
+   @user_move = params["the_move"]
 
-    @computer_move = ["rock", "paper", "scissors"].sample
+@computer_move = ["rock", "paper", "scissors"].sample
 
     if @user_move == @computer_move
       @outcome = "tied"
@@ -24,7 +24,7 @@ class GameController < ApplicationController
       @outcome = "won"
     end
 
-    # Adding an entry to the Move table for this turn
+   # Adding an entry to the Move table for this turn
     m = Move.new
     m.user_move = @user_move
     m.computer_move = @computer_move
